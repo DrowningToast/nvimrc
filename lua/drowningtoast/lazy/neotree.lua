@@ -9,15 +9,20 @@ return {
         },
         config = function ()
             require("neo-tree").setup({
-            window = {
-                position = "right",
-                close_if_last_window = true
-            },
+                window = {
+                    position = "right",
+                    close_if_last_window = true
+                },
                 source_selector = {
                     winbar = false,
-                }
-            })
+                },
+                filesystem = {
+                    follow_current_file = {
+                        enabled = true
+                    }
+                }}
 
+            )
             vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
 
         end

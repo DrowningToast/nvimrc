@@ -64,16 +64,16 @@ return {
                 end,
             },
             mapping = cmp.mapping.preset.insert({
-                ['<C-j>'] = cmp.mapping.select_prev_item(cmp_select),
-                ['<C-k>'] = cmp.mapping.select_next_item(cmp_select),
-                ['<C-Space>'] = cmp.mapping.confirm({ select = true }),
+                ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+                ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
             }),
             sources = cmp.config.sources({
                 { name = 'nvim_lsp' },
                 { name = 'luasnip' }, -- For luasnip users.
             }, {
-                { name = 'buffer' },
-            })
+                    { name = 'buffer' },
+                })
         })
 
         vim.diagnostic.config({
@@ -87,5 +87,15 @@ return {
                 prefix = "",
             },
         })
+
+        vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            {
+                virtual_text = false,
+                signs = true,
+                update_in_insert = false,
+                underline = true,
+            }
+        )
     end
 }
