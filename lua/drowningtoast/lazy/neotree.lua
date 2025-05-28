@@ -8,22 +8,24 @@ return {
             "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         },
         config = function ()
-            require("neo-tree").setup({
-                window = {
-                    position = "right",
-                    close_if_last_window = true
-                },
-                source_selector = {
-                    winbar = false,
-                },
-                filesystem = {
-                    follow_current_file = {
-                        enabled = true
-                    }
-                }}
+            if not  vim.g.vscode then
+                require("neo-tree").setup({
+                    window = {
+                        position = "right",
+                        close_if_last_window = true
+                    },
+                    source_selector = {
+                        winbar = false,
+                    },
+                    filesystem = {
+                        follow_current_file = {
+                            enabled = true
+                        }
+                    }}
 
-            )
-            vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-
+                )
+                vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
+            end
         end
-    }}
+    }
+}

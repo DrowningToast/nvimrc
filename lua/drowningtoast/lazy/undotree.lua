@@ -3,6 +3,8 @@ return {
     "mbbill/undotree",
 
     config = function() 
-        vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        if vim.g.vscode then
+            vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+        end
     end
 }

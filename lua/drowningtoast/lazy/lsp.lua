@@ -1,3 +1,9 @@
+if vim.g.vscode then
+    return {
+
+    }
+end
+
 return {
     "neovim/nvim-lspconfig",
     dependencies = {

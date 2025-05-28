@@ -18,7 +18,6 @@ use "folke/tokyonight.nvim"
 use "rebelot/kanagawa.nvim"
 
 use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
-use("mbbill/undotree")
 use("tpope/vim-fugitive")
 
   use {
@@ -44,6 +43,9 @@ use("tpope/vim-fugitive")
 	  }
   }
 
+    if not  vim.g.vscode then
+        use("mbbill/undotree")
+    end
 
 end)
 
