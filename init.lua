@@ -1,2 +1,2 @@
 require("DrowningToast")
-print("Hello world from base config")
+print("Loading nvim configuration. Press any button to continue.")
